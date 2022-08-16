@@ -1,0 +1,41 @@
+version: "3.5"
+services:
+  beacon-chain:
+    image: "beacon-chain.prysm-chiado.dnp.dappnode.eth:1.0.0"
+    build:
+      context: beacon-chain
+      args:
+        UPSTREAM_VERSION: v2.1.4
+    volumes:
+      - "beacon-chain-data:/data"
+    ports:
+      - "23053:23053/tcp"
+      - "22053:22053/udp"
+    restart: unless-stopped
+    environment:
+      HTTP_ENGINE: "http://nethermind-chiado.dnp.dappnode:8551"
+      CORSDOMAIN: "http://prysm-chiado.dappnode"
+      P2P_TCP_PORT: 23053
+      P2P_UDP_PORT: 22053
+      EXTRA_OPTS: ""
+  validator:
+    image: "validator.prysm-chiado.dnp.dappnode.eth:1.0.0"
+    build:
+      context: validator
+      dockerfile: Dockerfile
+      args:
+        UPSTREAM_VERSION: v2.1.4
+        BRANCH: develop
+    volumes:
+      - "validator-data:/root/"
+    restart: unless-stopped
+    environment:
+      LOG_TYPE: INFO
+      BEACON_RPC_PROVIDER: "beacon-chain.prysm-prater.dappnode:4000"
+      BEACON_RPC_GATEWAY_PROVIDER: "beacon-chain.prysm-prater.dappnode:3500"
+      GRAFFITI: validating_from_DAppNode
+      EXTRA_OPTS: ""
+      FEE_RECIPIENT_ADDRESS: ""
+volumes:
+  beacon-chain-data: {}
+  validator-data: {}
