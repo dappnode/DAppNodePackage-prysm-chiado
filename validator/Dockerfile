@@ -15,7 +15,6 @@ COPY auth-token /auth-token
 COPY chiado/config.yaml /usr/config.yaml
 COPY chiado/genesis.ssz /usr/genesis.ssz
 COPY entrypoint.sh /usr/local/bin
-COPY jwtsecret.hex /jwtsecret
 
 RUN chmod +x /usr/local/bin/validator && \
     chmod +x /usr/local/bin/entrypoint.sh 
