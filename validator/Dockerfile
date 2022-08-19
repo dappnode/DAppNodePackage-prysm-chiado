@@ -14,7 +14,7 @@ COPY --from=config /app/cmd/validator/validator.runfiles/prysm/cmd/validator/val
 COPY auth-token /auth-token
 COPY chiado/config.yaml /usr/config.yaml
 COPY chiado/genesis.ssz /usr/genesis.ssz
-COPY entrypoint.sh /usr/local/bin
+COPY ./entrypoint.sh /usr/local/bin
 
 RUN chmod +x /usr/local/bin/validator && \
     chmod +x /usr/local/bin/entrypoint.sh 
