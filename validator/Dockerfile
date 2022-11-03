@@ -1,7 +1,7 @@
 
 ARG UPSTREAM_VERSION
-FROM ghcr.io/gnosischain/gbc-prysm-validator:${UPSTREAM_VERSION} as config
-
+FROM gnosischain/prysm-validator:v3.0.0-pre-1-chiado as config 
+#${UPSTREAM_VERSION}
 FROM debian:bullseye-slim 
 
 RUN apt-get update && apt-get install -y ca-certificates file curl jq unzip zip && \
