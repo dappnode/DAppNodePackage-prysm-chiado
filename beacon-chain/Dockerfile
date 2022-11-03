@@ -1,7 +1,6 @@
 ARG UPSTREAM_VERSION
-FROM ghcr.io/gnosischain/gbc-prysm-beacon-chain:${UPSTREAM_VERSION} as base
-
-
+FROM gnosischain/prysm-beacon:v3.0.0-pre-1-chiado as base
+#${UPSTREAM_VERSION}
 
 FROM debian:bullseye-slim 
 
@@ -15,6 +14,7 @@ COPY --from=base /app/cmd/beacon-chain/beacon-chain /usr/local/bin/beacon-chain
 # Prysm launch chiado config
 COPY chiado/config.yaml /usr/config.yaml
 COPY chiado/genesis.ssz /usr/genesis.ssz
+COPY chiado/bootnodes.yaml /usr/bootnodes.yaml
 COPY jwtsecret.hex /jwtsecret
 COPY entrypoint.sh /usr/local/bin
 
