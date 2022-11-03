@@ -19,5 +19,6 @@ exec -c beacon-chain \
   --chain-config-file /usr/config.yaml \
   --genesis-state=/usr/genesis.ssz \
   --jwt-secret=/jwtsecret \
-  --bootstrap-node=enr:-MK4QNgIU4AT5AW0G0ldawIM2lYTX-gfNhZS4P8lIIuUQ8gUFjiAmT1P3tvAhTJx9y_UhfmEIqr4TYp0XcBtyXXN30-GAYOp2xB9h2F0dG5ldHOIAAAAAAAAAACEZXRoMpBI6hZ8AQAAb1oAAAAAAAAAgmlkgnY0gmlwhIuQGlWJc2VjcDI1NmsxoQK6lyw9lNfW6JWN-4oTYYa1gJpcELc31R7pxWudCp8vsIhzeW5jbmV0cwCDdGNwgiMog3VkcIIjKA== \
+  --bootstrap-node=/usr/bootnodes.yaml \
+  #--bootstrap-node=enr:-MK4QCkOyqOTPX1_-F-5XVFjPclDUc0fj3EeR8FJ5-hZjv6ARuGlFspM0DtioHn1r6YPUXkOg2g3x6EbeeKdsrvVBYmGAYQKrixeh2F0dG5ldHOIAAAAAAAAAACEZXRoMpAxNnBDAgAAb___________gmlkgnY0gmlwhIuQGlWJc2VjcDI1NmsxoQKdW3-DgLExBkpLGMRtuM88wW_gZkC7Yeg0stYDTrlynYhzeW5jbmV0cwCDdGNwgiMog3VkcIIjKA== \
   $EXTRA_OPTS
