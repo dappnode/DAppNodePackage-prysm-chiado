@@ -10,7 +10,7 @@ exec -c beacon-chain \
   --grpc-gateway-host=0.0.0.0 \
   --monitoring-host=0.0.0.0 \
   --p2p-local-ip=0.0.0.0 \
-  --http-web3provider=$HTTP_ENGINE \
+  --execution-endpoint=$HTTP_ENGINE \
   --p2p-tcp-port=$P2P_TCP_PORT \
   --p2p-udp-port=$P2P_UDP_PORT \
   --grpc-gateway-port=3500 \
